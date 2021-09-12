@@ -1,6 +1,6 @@
-CREATE DATABASE [TestSalonLepote]
+CREATE DATABASE [TestKnjizara]
 GO
-USE [TestSalonLepote]
+USE [TestKnjizara]
 GO
 CREATE TABLE [dbo].[Kategorija] (
     [Id]    UNIQUEIDENTIFIER NOT NULL,
@@ -8,7 +8,7 @@ CREATE TABLE [dbo].[Kategorija] (
     PRIMARY KEY CLUSTERED ([Id] ASC)
 );
 GO
-CREATE TABLE [dbo].[Usluga] (
+CREATE TABLE [dbo].[Knjiga] (
     [Id]         UNIQUEIDENTIFIER NOT NULL,
     [Naziv]      VARCHAR (200)    NOT NULL,
     [Cena]       FLOAT (53)       NOT NULL,
