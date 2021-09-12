@@ -1,0 +1,36 @@
+﻿@model IEnumerable<Knjizara.Podaci.Knjiga>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<table class="table">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col">Naziv</th>
+            <th scope="col">Kategorija</th>
+            <th scope="col">Cena</th>
+            <th scope="col">#</th>
+            <th scope="col">#</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var knjiga in Model)
+    {
+        <tr>
+            <td>@knjiga.Naziv</td>
+            <td>@knjiga.Kategorija.Naziv</td>
+            <td>@knjiga.Cena</td>
+            <td><a href="@Url.Action("Izmeni", "Knjizara", new { id = knjiga.Id })" class="btn btn-primary">Izmeni</a></td>
+            <td>@using (Html.BeginForm("Obrisi", "Knjizara", FormMethod.Post))
+            {
+                @Html.Hidden("id", knjiga.Id)
+                <button type="submit" class="btn btn-danger">Obrisi</button>
+            }</td>
+        </tr>
+    }
+    </tbody>
+</table>
+

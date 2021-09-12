@@ -1,0 +1,30 @@
+﻿@model Knjizara.Models.KnjigaModel
+
+@{
+    ViewBag.Title = "Dodaj";
+}
+
+@using (Html.BeginForm("Dodaj", "Knjizara", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    <div>
+        @Html.HiddenFor(model => model.Id)
+    </div>
+    <div>
+        @Html.LabelFor(model => model.Naziv)
+        @Html.TextBoxFor(model => model.Naziv)
+        @Html.ValidationMessageFor(model => model.Naziv)
+    </div>
+    <div>
+        @Html.LabelFor(model => model.Cena)
+        @Html.TextBoxFor(model => model.Cena)
+        @Html.ValidationMessageFor(model => model.Cena)
+    </div>
+    <div>
+        @Html.LabelFor(model => model.Kategorija)
+        @Html.DropDownListFor(model => model.Kategorija, Knjizara.Controllers.KnjizaraController.DropDown())
+        @Html.ValidationMessageFor(model => model.Kategorija)
+    </div>
+    <input type="submit" id="Potvrdi" value="Potvrdi" />
+}
+
